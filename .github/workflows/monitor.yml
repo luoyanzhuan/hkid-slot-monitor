@@ -1,0 +1,60 @@
+name: 预约配额监控
+
+on:
+  schedule:
+    # 每 10 分钟检查一次（GitHub 定时器按 UTC 执行，香港时间同样每 10 分钟触发）
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "运行模式：check=正常检查 / test=发送测试推送"
+        type: choice
+        options:
+          - check
+          - test
+        default: check
+
+# 允许把 state.json 状态文件提交回仓库，实现跨运行的状态对比
+permissions:
+  contents: write
+
+# 同一时间只允许一个检查任务运行，避免状态文件并发冲突
+concurrency:
+  group: hkid-quota-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 检查配额并推送提醒
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          TARGET_WINDOW_DAYS: ${{ secrets.TARGET_WINDOW_DAYS }}
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "test" ]; then
+            python monitor.py --test
+          else
+            python monitor.py --once
+          fi
+
+      - name: 保存监控状态（用于状态对比）
+        run: |
+          git config user.name "monitor-bot"
+          git config user.email "monitor-bot@users.noreply.github.com"
+          git add state.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: 更新监控状态 $(date -u +%FT%TZ)"
+            git push || { sleep 5; git push; }
+          fi
+          
+
+

@@ -946,11 +946,11 @@
     "K": "no-quotaK"
    },
    "11/10/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "11/11/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "11/12/2026": {
@@ -1682,7 +1682,7 @@
     "K": "no-quotaK"
    },
    "10/30/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/31/2026": {

@@ -1,10 +1,6 @@
 {
  "seen": {
   "FTO": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -382,15 +378,15 @@
     "K": "no-quotaK"
    },
    "01/14/2027": {
+    "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
     "R": "quota-g",
     "K": "no-quotaK"
    }
   },
   "RHK": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -768,15 +764,15 @@
     "K": "no-quotaK"
    },
    "01/14/2027": {
+    "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
     "R": "quota-g",
     "K": "no-quotaK"
    }
   },
   "RKO": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -1155,14 +1151,14 @@
    },
    "01/14/2027": {
     "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
+    "R": "quota-r",
     "K": "no-quotaK"
    }
   },
   "RTK": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -1540,15 +1536,15 @@
     "K": "no-quotaK"
    },
    "01/14/2027": {
+    "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
     "R": "quota-g",
     "K": "no-quotaK"
    }
   },
   "TMO": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -1926,15 +1922,15 @@
     "K": "no-quotaK"
    },
    "01/14/2027": {
+    "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
     "R": "quota-g",
     "K": "no-quotaK"
    }
   },
   "YLO": {
-   "09/18/2026": {
-    "R": "quota-r",
-    "K": "no-quotaK"
-   },
    "09/19/2026": {
     "R": "quota-r",
     "K": "no-quotaK"
@@ -2312,6 +2308,10 @@
     "K": "no-quotaK"
    },
    "01/14/2027": {
+    "R": "quota-g",
+    "K": "no-quotaK"
+   },
+   "01/15/2027": {
     "R": "quota-g",
     "K": "no-quotaK"
    }

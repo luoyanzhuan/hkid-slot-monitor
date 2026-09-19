@@ -496,7 +496,7 @@
     "K": "no-quotaK"
    },
    "10/26/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/27/2026": {
@@ -508,11 +508,11 @@
     "K": "no-quotaK"
    },
    "10/29/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/30/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/31/2026": {
@@ -1272,7 +1272,7 @@
     "K": "no-quotaK"
    },
    "10/27/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/28/2026": {
@@ -2048,7 +2048,7 @@
     "K": "no-quotaK"
    },
    "10/28/2026": {
-    "R": "quota-y",
+    "R": "quota-r",
     "K": "no-quotaK"
    },
    "10/29/2026": {

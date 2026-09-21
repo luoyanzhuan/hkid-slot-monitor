@@ -109,44 +109,35 @@ async def main():
         except Exception as e:
             print(f"页面加载: {e}")
 
-        await asyncio.sleep(3)
+        await asyncio.sleep(8)
         current_url = page.url
         print(f"当前页面: {current_url}")
 
         # 如果被重定向到 term 页面（隐私政策同意），需要勾选并点击开始
-        if "/term" in current_url or "privacy" in current_url.lower() or "我已阅读" in await page.inner_text("body"):
-            print("检测到隐私政策页面，自动勾选并继续...")
+        if "/term" in current_url:
+            print("检测到隐私政策页面，等待 Imperva JS 执行...")
+            await asyncio.sleep(5)
             try:
                 # 勾选复选框
                 checkbox = await page.query_selector('input[type="checkbox"]')
                 if checkbox:
                     await checkbox.check()
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(2)
                 # 点击"开始"按钮
                 start_btn = await page.query_selector('button:has-text("开始"), input[value="开始"], a:has-text("开始")')
                 if start_btn:
                     await start_btn.click()
-                    await asyncio.sleep(5)
-                    print(f"点击开始后页面: {page.url}")
+                    print("已点击开始，等待页面跳转...")
+                    # 等待页面自然跳转，不主动导航
+                    await asyncio.sleep(10)
+                    current_url = page.url
+                    print(f"跳转后页面: {current_url}")
             except Exception as e:
                 print(f"处理隐私页面失败: {e}")
 
-        # 再次检查是否在 step3
+        await asyncio.sleep(5)
         current_url = page.url
-        print(f"当前页面: {current_url}")
-
-        # 如果还不是 step3，再次尝试导航
-        if "step3" not in current_url:
-            print(f"不在 step3，尝试直接导航...")
-            try:
-                await page.goto(step3_url, wait_until="networkidle", timeout=30000)
-                await asyncio.sleep(5)
-                current_url = page.url
-                print(f"导航后页面: {current_url}")
-            except Exception as e:
-                print(f"导航失败: {e}")
-
-        await asyncio.sleep(3)
+        print(f"最终页面: {current_url}")
 
         # 截图
         await page.screenshot(path="/tmp/step3.png", full_page=False)
